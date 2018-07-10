@@ -1,7 +1,7 @@
 //isLogged: false
 const initalState = {
     isLoading: false,
-    isLogged: true,
+    isLogged: false,
     isLoggingFailed: false,
     error: null,
     createdAt: null,
