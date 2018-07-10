@@ -10,6 +10,8 @@ const Facebook = props => {
         props.dispatch(loginInfo(res));
     }
     let loginFailed = () => console.log('failed')
+    // on click do loading when logged in cancel loading
+    let requestLoading = () => console.log('loading')
 
     return(
         <FacebookLogin
@@ -18,6 +20,7 @@ const Facebook = props => {
             textButton="Authenticate With Facebook"
             fields="name, email, picture"
             onFailure={loginFailed}
+            onClick={requestLoading}
             callback={responseFacebook}
             cssClass="waves-effect waves-light btn-large  blue darken-4 facebooklogin"
             cookie={true}

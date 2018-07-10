@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 
 import LoginScreen from '../containers/LoginScreen';
 import MainScreen from '../containers/MainScreen';
+import Loader from '../misc/Loader';
 
 const App = props => {
   let content;
-  if(props.state.isLogged === false){
-    content = <LoginScreen/>
-  }else{
+  if(props.state.isLogged){
     content = <MainScreen/>
+  }else if(props.state.isLoading){
+    content = <Loader/>
+  }else{
+    content = <LoginScreen/>
   }
 
   return(

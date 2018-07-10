@@ -1,6 +1,6 @@
 //isLogged: false
 const initalState = {
-    isLoading: false,
+    isLoading: true,
     isLogged: false,
     isLoggingFailed: false,
     error: null,
@@ -20,6 +20,22 @@ const reducer = (state=initalState, action) => {
                 email:action.email,
                 avatarUrl:action.avatar,
                 isLogged:action.islogged
+            }
+        case 'LOGOUT':
+            return{
+
+            }
+        case 'LOADING':
+            return{
+
+            }
+        case 'CANCEL_LOADING':
+            return{
+
+            }
+        case 'ADD_EXPENSE':
+            return{
+                
             }
         default:
             return state
