@@ -7,3 +7,13 @@ export const loginInfo = response => ({
     avatar: response.picture.data.url,
     islogged: true
 });
+
+export const changeMain = changeTo => ({
+    type: 'CHANGE_MAIN',
+    changeTo
+});
+
+export const addExpense = expense => ({
+    type: 'ADD_EXPENSE',
+    expense
+});

@@ -1,14 +1,16 @@
-//isLogged: false
 const initalState = {
-    isLoading: true,
-    isLogged: false,
+    isLoading: false,
+    isLogged: true,
     isLoggingFailed: false,
-    error: null,
-    createdAt: null,
-    fullName: null,
-    email: null,
-    avatarUrl: null,
-    expenses: []
+    curMain: 'addexpense',
+    profile: {
+        createdAt: null,
+        fullName: null,
+        email: null,
+        avatarUrl: null,
+        expenses: []
+    },
+    error: null    
 };
 
 const reducer = (state=initalState, action) => {
@@ -16,10 +18,12 @@ const reducer = (state=initalState, action) => {
         case 'LOGGED':
             return{
                 ...state,
-                fullName:action.fullname,
-                email:action.email,
-                avatarUrl:action.avatar,
-                isLogged:action.islogged
+                profile: {
+                    fullName:action.fullname,
+                    email:action.email,
+                    avatarUrl:action.avatar,
+                    isLogged:action.islogged
+                }
             }
         case 'LOGOUT':
             return{
@@ -35,7 +39,12 @@ const reducer = (state=initalState, action) => {
             }
         case 'ADD_EXPENSE':
             return{
-                
+
+            }
+        case 'CHANGE_MAIN':
+            return{
+                ...state,
+                curMain: action.changeTo
             }
         default:
             return state

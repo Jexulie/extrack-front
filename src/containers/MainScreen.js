@@ -9,7 +9,8 @@ import '../css/mainscreen.css';
 const MainScreen = props => {
     return(
         <div className="mainscreen">
-            <h1>Main Screen</h1>
+            <Main state={props.state}/>
+            <SideBar/>
         </div>
     )
 }

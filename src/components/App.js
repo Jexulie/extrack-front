@@ -8,7 +8,7 @@ import Loader from '../misc/Loader';
 const App = props => {
   let content;
   if(props.state.isLogged){
-    content = <MainScreen/>
+    content = <MainScreen state={props.state}/>
   }else if(props.state.isLoading){
     content = <Loader/>
   }else{

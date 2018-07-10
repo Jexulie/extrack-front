@@ -17,12 +17,12 @@ const Facebook = props => {
         <FacebookLogin
             appId={auth.FacebookKey}
             autoLoad={false}
-            textButton="Authenticate With Facebook"
+            textButton="Log-in with Facebook"
             fields="name, email, picture"
             onFailure={loginFailed}
             onClick={requestLoading}
             callback={responseFacebook}
-            cssClass="waves-effect waves-light btn-large  blue darken-4 facebooklogin"
+            cssClass="waves-effect waves-light btn-large  red darken-2 facebooklogin"
             cookie={true}
         />
     )
