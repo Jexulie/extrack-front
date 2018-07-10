@@ -1,31 +1,52 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { addExpense } from '../../../actions'
+import { addExpense } from '../../../actions';
+
+import '../../../css/addexpense.css';
 
 // TODO: change input field color
 
 const AddExpense = props => {
-    console.log(expense)
 
-    let expense = {
-        category: "",
-        cost: ""
-    }
+    let category;
+    let name;
+    let cost;
 
     return(
         <div className="addexpense">
-            <div className="wrapper">
-                <form className="col s12">
-                    <div className="input-field">
-                        <input type="text" ref={i => expense.category = i }/>
-                        <label>Expense Category</label>
+            <div className="row">
+            <h2>Add Expense</h2>
+                <form className="col s12 form">
+                    <div className="left-side">
+                        <div className="input-field">
+                            <input type="text" ref={i => {
+                                category = i
+                            }}/>
+                            <label>Expense Category</label>
+                        </div>
+                        <div className="input-field">
+                            <input type="text" ref={i => {
+                                name = i 
+                            }}/>
+                            <label>Expense Name</label>
+                        </div>
+                        <div className="input-field">
+                            <input type="number" ref={i => {
+                                cost = i 
+                            }}/>
+                            <label>Expense Cost</label>
+                        </div>
                     </div>
-                    <div className="input-field">
-                        <input type="text" ref={i => expense.cost = i }/>
-                        <label>Expense Cost</label>
-                    </div>
-                    <div className="input-field vertical">
-                        <button className="btn red darken-2">+</button>
+                    <div className="right-side">
+                        <div className="input-field vertical">
+                            <button className="btn red darken-2 vertical-btn" onClick={(e) => {
+                                e.preventDefault();
+                                props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value), name: name.value}));
+                                category.value = "";
+                                cost.value = "";
+                                name.value = "";
+                            }}>Add</button>
+                        </div>
                     </div>
                 </form>
             </div>

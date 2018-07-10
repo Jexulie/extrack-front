@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginInfo } from '../../actions';
+import { loginInfo, startLoading, authFailed } from '../../actions';
 import FacebookLogin from 'react-facebook-login';
 import auth from '../../auth/auth.json';
 
@@ -9,9 +9,9 @@ const Facebook = props => {
     let responseFacebook = res => {
         props.dispatch(loginInfo(res));
     }
-    let loginFailed = () => console.log('failed')
+    let loginFailed = () => props.dispatch(authFailed());
     // on click do loading when logged in cancel loading
-    let requestLoading = () => console.log('loading')
+    let requestLoading = () => props.dispatch(startLoading());
 
     return(
         <FacebookLogin

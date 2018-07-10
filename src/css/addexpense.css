@@ -1,0 +1,45 @@
+.addexpense {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px #ec2121e1
+}
+
+.left-side {
+    flex-basis: 75%;
+}
+
+.right-side {
+    flex-basis: 25%;
+}
+
+.vertical {
+    margin-left: 25px;
+    height: 100%;
+}
+
+.vertical-btn {
+    height: 90%;
+    border-radius: 10px;
+}
+
+.input-field input:focus+label {
+    color: #ec2121e1 !important;
+}
+
+.row .input-field input:focus {
+    border-bottom: 1px solid #ec2121e1 !important;
+    box-shadow: 0 1px 0 0 #ec2121e1 !important
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
