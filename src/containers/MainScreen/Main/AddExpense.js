@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addExpense } from '../../../actions';
+import { addExpense, calcTotal } from '../../../actions';
 
 import '../../../css/addexpense.css';
 
@@ -11,6 +11,11 @@ const AddExpense = props => {
     let category = "";
     let name = "";
     let cost = "";
+
+    let activate = () => {
+        props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value), name: name.value}));
+        props.dispatch(calcTotal())
+    }
 
     return(
         <div className="addexpense">
@@ -31,7 +36,7 @@ const AddExpense = props => {
                             <label>Expense Name</label>
                         </div>
                         <div className="input-field">
-                            <input type="number" ref={i => {
+                            <input type="number" placeholder="$" ref={i => {
                                 cost = i 
                             }}/>
                             <label>Expense Cost</label>
@@ -39,10 +44,10 @@ const AddExpense = props => {
                     </div>
                     <div className="right-side">
                         <div className="input-field vertical">
-                            <button className="btn red darken-2 vertical-btn" onClick={(e) => {
+                            <button className="btn red darken-2 vertical-btn" onClick={e => {
                                 e.preventDefault();
                                 if(category.value !== "" || name.value !== "" || cost.value !== "" || cost.value !== NaN){
-                                    props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value), name: name.value}));
+                                    activate();
                                     category.value = "";
                                     cost.value = "";
                                     name.value = "";

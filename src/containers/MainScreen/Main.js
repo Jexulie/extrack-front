@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import '../../css/main.css'
 
 import AddExpense from './Main/AddExpense';
@@ -7,38 +7,21 @@ import ThisYear from './Main/ThisYear';
 import Comparison from './Main/Comparison';
 
 export default props => {
-    console.log(props.state)
-
-    let filterThisYear = [];
-    let filterThisMonth = [];
-    let filterLastYear = [];
-    let filterLastMonth = [];
-
-    if(props.state.profile.expenses.year !== undefined){
-        filterThisYear = props.state.profile.expenses.filter(e => {
-            e.year === new Date().getFullYear();
-        });
-        console.log(filterThisYear)
-        filterThisMonth = props.state.profile.expenses.filter(e => {
-            e.month === new Date().getMonth();
-        });
-        filterLastYear = props.state.profile.expenses.filter(e => {
-            e.year === new Date().getFullYear() - 1;
-        });
-        filterLastMonth = props.state.profile.expenses.filter(e => {
-            e.month === new Date().getMonth() - 1;
-        });
-    }
 
     let content;
     if(props.state.curMain === 'thisyear'){
-        content = <ThisYear thisYear={filterThisYear}/>
+        content = <ThisYear thisYear={props.state.profile.filterThisYear}/>
     }else if(props.state.curMain === 'thismonth'){
-        content = <ThisMonth thisMonth={filterThisMonth}/>
+        content = <ThisMonth thisMonth={props.state.profile.filterThisMonth}/>
     }else if(props.state.curMain === 'addexpense'){
         content = <AddExpense/>
     }else if(props.state.curMain === 'comparison'){
-        content = <Comparison thisYear={filterThisYear} thisMonth={filterThisMonth} lastYear={filterLastYear} lastMonth={filterLastMonth}/>
+        content = <Comparison 
+                    thisYear={props.state.profile.filterThisYear} 
+                    thisMonth={props.state.profile.filterThisMonth} 
+                    lastYear={props.state.profile.filterLastYear} 
+                    lastMonth={props.state.profile.filterLastMonth}
+                    />
     }
     return(
         <div className="main">

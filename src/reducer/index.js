@@ -9,11 +9,16 @@ const initalState = {
         email: null,
         avatarUrl: null,
         messageWarn: false,
-        expenses: []
+        expenses: [],
+        filterThisYear: [],
+        filterThisMonth: [],
+        filterLastYear: [],
+        filterLastMonth: []
     },
     error: null
 };
 
+// TODO: Filter by category
 
 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
 const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -68,11 +73,38 @@ const reducer = (state=initalState, action) => {
                             category: action.expense.category,
                             fullDate: new Date().toLocaleString(),
                             year: new Date().getFullYear(),
-                            month: new Date().getMonth(),
+                            month: monthNames[new Date().getMonth()],
                             day: new Date().getDate(),
                             day_name: dayNames[new Date().getDay()],
                         }
                     ]
+                }
+            }
+        case 'CALC_TOTAL':
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    filterThisYear : state.profile.expenses.filter(e => {
+                        if(e.year === new Date().getFullYear()){
+                            return e;
+                        }
+                    }),
+                    filterThisMonth : state.profile.expenses.filter(e => {
+                        if(e.month === monthNames[new Date().getMonth()]){
+                            return e;
+                        }
+                    }),
+                    filterLastYear : state.profile.expenses.filter(e => {
+                        if(e.year === new Date().getFullYear() - 1){
+                            return e;
+                        }
+                    }),
+                    filterLastMonth : state.profile.expenses.filter(e => {
+                        if(e.month === monthNames[new Date().getMonth() - 1]){
+                            return e;
+                        }
+                    })
                 }
             }
         case 'CHANGE_MAIN':

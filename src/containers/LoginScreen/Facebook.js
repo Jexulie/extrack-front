@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import { loginInfo, startLoading, authFailed } from '../../actions';
 import FacebookLogin from 'react-facebook-login';

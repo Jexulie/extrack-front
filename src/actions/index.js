@@ -22,3 +22,7 @@ export const startLoading = () => ({
 export const authFailed = () => ({
     type: 'AUTH_FAILED'
 });
+
+export const calcTotal = () => ({
+    type: 'CALC_TOTAL'
+})
