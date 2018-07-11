@@ -10,7 +10,7 @@ const MainScreen = props => {
     return(
         <div className="mainscreen">
             <Main state={props.state}/>
-            <SideBar/>
+            <SideBar state={props.state}/>
         </div>
     )
 }

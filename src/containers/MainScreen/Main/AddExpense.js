@@ -44,7 +44,7 @@ const AddExpense = props => {
                     </div>
                     <div className="right-side">
                         <div className="input-field vertical">
-                            <button className="btn red darken-2 vertical-btn" onClick={e => {
+                            <button className="waves-effect waves-light btn red darken-2 vertical-btn" onClick={e => {
                                 e.preventDefault();
                                 if(category.value !== "" || name.value !== "" || cost.value !== ""){
                                     if(/\w/ig.test(cost.value)){

@@ -1,6 +1,6 @@
 const initalState = {
     isLoading: false,
-    isLogged: true,
+    isLogged: false,
     isLoggingFailed: false,
     curMain: 'addexpense', // this year default
     profile: {
@@ -35,7 +35,11 @@ const reducer = (state=initalState, action) => {
                     fullName:action.response.name,
                     email:action.response.email,
                     avatarUrl:action.response.picture.data.url,
-                    expenses: []
+                    expenses: [],
+                    filterThisYear: [],
+                    filterThisMonth: [],
+                    filterLastYear: [],
+                    filterLastMonth: []
                 }
             }
         case 'LOGOUT':

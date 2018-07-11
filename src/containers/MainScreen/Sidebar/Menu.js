@@ -5,8 +5,8 @@ import { changeMain } from '../../../actions'
 // TODO: Logout | On click red darken-1
 
 const Menu = props => {
-    let notActive = "btn red darken-3"
-    let Active = "btn red darken-2"
+    let notActive = "waves-effect waves-light btn red darken-3"
+    let Active = "waves-effect waves-light btn red darken-2"
 
     return(
         <div className="menu">

@@ -8,7 +8,7 @@ export default props => {
     return(
         <div className="sidebar">
             {/* <Logo/> */}
-            <Profile/>
+            <Profile state={props.state}/>
             <Menu/>
         </div>
     )
