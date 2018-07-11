@@ -5,8 +5,14 @@
     min-height: 100vh;
 }
 
+.wrap{
+    width: 50vw;
+    height: 50vh;
+}
+
 .form {
     display: flex;
+    padding: 50px;
     flex-direction: row;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 1px #ec2121e1

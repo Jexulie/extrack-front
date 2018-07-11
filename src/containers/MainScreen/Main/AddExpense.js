@@ -8,15 +8,15 @@ import '../../../css/addexpense.css';
 
 const AddExpense = props => {
 
-    let category;
-    let name;
-    let cost;
+    let category = "";
+    let name = "";
+    let cost = "";
 
     return(
         <div className="addexpense">
-            <div className="row">
-            <h2>Add Expense</h2>
-                <form className="col s12 form">
+            <div className="wrap">
+            <h2 className="center">Add Expense</h2>
+                <form className="form">
                     <div className="left-side">
                         <div className="input-field">
                             <input type="text" ref={i => {
@@ -41,10 +41,12 @@ const AddExpense = props => {
                         <div className="input-field vertical">
                             <button className="btn red darken-2 vertical-btn" onClick={(e) => {
                                 e.preventDefault();
-                                props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value), name: name.value}));
-                                category.value = "";
-                                cost.value = "";
-                                name.value = "";
+                                if(category.value !== "" || name.value !== "" || cost.value !== "" || cost.value !== NaN){
+                                    props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value), name: name.value}));
+                                    category.value = "";
+                                    cost.value = "";
+                                    name.value = "";
+                                }
                             }}>Add</button>
                         </div>
                     </div>

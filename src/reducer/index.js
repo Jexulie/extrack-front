@@ -11,8 +11,12 @@ const initalState = {
         messageWarn: false,
         expenses: []
     },
-    error: null    
+    error: null
 };
+
+
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
+const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 const reducer = (state=initalState, action) => {
     switch(action.type){
@@ -62,7 +66,11 @@ const reducer = (state=initalState, action) => {
                             name: action.expense.name,
                             cost:action.expense.cost,
                             category: action.expense.category,
-                            year: new Date().toLocaleString()
+                            fullDate: new Date().toLocaleString(),
+                            year: new Date().getFullYear(),
+                            month: new Date().getMonth(),
+                            day: new Date().getDate(),
+                            day_name: dayNames[new Date().getDay()],
                         }
                     ]
                 }
