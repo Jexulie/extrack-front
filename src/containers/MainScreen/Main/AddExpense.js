@@ -8,9 +8,9 @@ import '../../../css/addexpense.css';
 
 const AddExpense = props => {
 
-    let category = "";
-    let name = "";
-    let cost = "";
+    let category ;
+    let name;
+    let cost;
 
     let activate = () => {
         props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value), name: name.value}));
@@ -46,7 +46,7 @@ const AddExpense = props => {
                         <div className="input-field vertical">
                             <button className="btn red darken-2 vertical-btn" onClick={e => {
                                 e.preventDefault();
-                                if(category.value !== "" || name.value !== "" || cost.value !== "" || cost.value !== NaN){
+                                if(category.value !== "" || name.value !== "" || parseInt(cost.value) !== NaN || cost.value !== ""){
                                     activate();
                                     category.value = "";
                                     cost.value = "";
