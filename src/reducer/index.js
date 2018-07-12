@@ -1,6 +1,6 @@
 const initalState = {
     isLoading: false,
-    isLogged: false,
+    isLogged: true,
     isLoggingFailed: false,
     curMain: 'addexpense', // this year default
     profile: {
@@ -15,7 +15,8 @@ const initalState = {
         filterLastYear: [],
         filterLastMonth: []
     },
-    error: null
+    info: null,
+    message: null
 };
 
 // TODO: Filter by category
@@ -25,6 +26,7 @@ const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 
 const reducer = (state=initalState, action) => {
     switch(action.type){
+        /* Authentication */        
         case 'LOGIN':
             return{
                 ...state,
@@ -46,6 +48,7 @@ const reducer = (state=initalState, action) => {
             return{
 
             }
+        /* Loading */
         case 'START_LOADING':
             return{
                 ...state,
@@ -56,13 +59,7 @@ const reducer = (state=initalState, action) => {
                 ...state,
                 isLoading: false
             }
-        case 'AUTH_FAILED':
-            return{
-                ...state,
-                isLoading: false,
-                isLogged: false,
-                error: 'Auth Failed'
-            }
+        /* Expenses */
         case 'ADD_EXPENSE':
             return{
                 ...state,
@@ -111,10 +108,35 @@ const reducer = (state=initalState, action) => {
                     })
                 }
             }
+        /* Changing Main Page */
         case 'CHANGE_MAIN':
             return{
                 ...state,
                 curMain: action.changeTo
+            }
+        /* Info */
+        case 'SHOW_INFO':
+            return {
+                ...state,
+                info: true
+            }
+        case 'HIDE_INFO':
+            return {
+                ...state,
+                info: false
+            }
+        /* Info Messages */
+        case 'AUTH_FAILED':
+            return{
+                ...state,
+                isLoading: false,
+                isLogged: false,
+                message: action.msg
+            }
+        case 'EXPENSE_ADD_MSG':
+            return{
+                ...state,
+                message: action.msg
             }
         default:
             return state

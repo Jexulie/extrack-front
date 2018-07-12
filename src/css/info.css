@@ -1,0 +1,21 @@
+/* make it better */
+
+.info{
+    position: absolute;
+    z-index: 2;
+    top: 85%;
+    transition: all ease .2s;
+    color: #fff;
+    padding: 15px 10px;
+    background-color: #ec2121e5;
+    border-radius: 15px;
+}
+.active{
+    transition: all ease .2s;
+    left: -30%;
+}
+
+.hidden{
+    transition: all ease .2s;
+    left: 10%;
+}

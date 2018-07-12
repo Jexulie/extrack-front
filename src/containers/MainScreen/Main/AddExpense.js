@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addExpense, calcTotal } from '../../../actions';
+import { addExpense, calcTotal, showInfo, hideInfo, expenseAddMsg } from '../../../actions';
 
 import '../../../css/addexpense.css';
 
@@ -15,13 +15,16 @@ const AddExpense = props => {
     let activate = () => {
         props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value,10), name: name.value}));
         props.dispatch(calcTotal())
+        props.dispatch(expenseAddMsg('Expense Added!'))
+        props.dispatch(showInfo())
+        setTimeout(() => props.dispatch(hideInfo()),3000)
     }
 
     return(
         <div className="addexpense">
             <div className="wrap">
             <h2 className="center">Add Expense</h2>
-                <form className="form">
+                <form className="form center">
                     <div className="left-side">
                         <div className="input-field">
                             <input id="category" type="text" ref={i => {

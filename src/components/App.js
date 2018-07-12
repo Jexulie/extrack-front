@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import LoginScreen from '../containers/LoginScreen';
 import MainScreen from '../containers/MainScreen';
-import Loader from '../misc/Loader';
+import Loader from '../Misc/Loader';
+import Info from '../Misc/Info';
 
 const App = props => {
   let content;
@@ -18,6 +19,7 @@ const App = props => {
   return(
     <div className="App">
         {content}
+        <Info info={props.state.info} message={props.state.message}/>
     </div>
   )
 }

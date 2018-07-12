@@ -9,7 +9,7 @@ export default props => {
             <div className="wrapper center">
                 <div className="header center">
                     <h2>Welcome To Ex-Track App !</h2>
-                    <h5>Login to Proceed</h5>
+                    <h5>Login to Proceed...</h5>
                 </div>
                 <div className="login">
                     <Facebook/>

@@ -1,6 +1,6 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import { loginInfo, startLoading, authFailed } from '../../actions';
+import { loginInfo, startLoading, authFailed, showInfo, hideInfo } from '../../actions';
 import FacebookLogin from 'react-facebook-login';
 import auth from '../../auth/auth.json';
 
@@ -9,7 +9,12 @@ const Facebook = props => {
     let responseFacebook = res => {
         props.dispatch(loginInfo(res));
     }
-    let loginFailed = () => props.dispatch(authFailed());
+    let loginFailed = () => {
+        props.dispatch(authFailed('Auth Failed'));
+        props.dispatch(showInfo());
+        setTimeout(() => props.dispatch(hideInfo()), 5000)
+
+    };
     // on click do loading when logged in cancel loading
     let requestLoading = () => props.dispatch(startLoading());
 

@@ -11,14 +11,12 @@ html{
 .App{
     min-width: 100vw;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-.loader{ 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 100vw;
-    min-height: 100vh;
+.loader{
+    align-self: center;
 }
 
 p,h1,h2,h3,h4,h5,h6{

@@ -6,9 +6,11 @@ import ThisMonth from './Main/ThisMonth';
 import ThisYear from './Main/ThisYear';
 import Comparison from './Main/Comparison';
 
+
 export default props => {
 
     let content;
+
     if(props.state.curMain === 'thisyear'){
         content = <ThisYear thisYear={props.state.profile.filterThisYear}/>
     }else if(props.state.curMain === 'thismonth'){

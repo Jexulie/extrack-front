@@ -19,10 +19,24 @@ export const startLoading = () => ({
     type: 'START_LOADING'
 });
 
-export const authFailed = () => ({
-    type: 'AUTH_FAILED'
+export const authFailed = msg => ({
+    type: 'AUTH_FAILED',
+    msg
 });
+
+export const expenseAddMsg = msg => ({
+    type: 'EXPENSE_ADD_MSG',
+    msg
+})
 
 export const calcTotal = () => ({
     type: 'CALC_TOTAL'
+});
+
+export const showInfo = () => ({
+    type: 'SHOW_INFO'
+});
+
+export const hideInfo = () => ({
+    type: 'HIDE_INFO'
 })

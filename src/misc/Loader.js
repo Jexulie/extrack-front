@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default  () => (
-    <div className="loader center">
+    <div className="loader">
         <div className="preloader-wrapper big active">
             <div className="spinner-layer spinner-blue">
                 <div className="circle-clipper left">
