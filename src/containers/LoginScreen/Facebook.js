@@ -1,13 +1,13 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import { loginInfo, startLoading, authFailed, showInfo, hideInfo } from '../../actions';
+import { startLoading, authFailed, showInfo, hideInfo, apiCall } from '../../actions';
 import FacebookLogin from 'react-facebook-login';
 import auth from '../../auth/auth.json';
 
 const Facebook = props => {
 
     let responseFacebook = res => {
-        props.dispatch(loginInfo(res));
+        props.dispatch(apiCall(res, props.dispatch));
     }
     let loginFailed = () => {
         props.dispatch(authFailed('Auth Failed'));

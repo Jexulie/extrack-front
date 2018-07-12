@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addExpense, calcTotal, showInfo, hideInfo, expenseAddMsg } from '../../../actions';
+import { addExpense, calcTotal, showInfo, hideInfo, expenseAddMsg, saveExpense } from '../../../actions';
 
 import '../../../css/addexpense.css';
-
-// TODO: change input field color
 
 const AddExpense = props => {
 
@@ -12,12 +10,28 @@ const AddExpense = props => {
     let name = "";
     let cost = "";
 
+    let post = {
+        facebookID: props.state.profile.id,
+        data: {
+            expenses: props.state.profile.expenses,
+            filterThisYear: props.state.profile.filterThisYear,
+            filterThisMonth: props.state.profile.filterThisMonth,
+            filterLastYear: props.state.profile.filterLastYear,
+            filterLastMonth: props.state.profile.filterLastMonth
+        }
+    }
+
+    // TODO: Huge Problem -> doesnt add last item
+
     let activate = () => {
         props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value,10), name: name.value}));
         props.dispatch(calcTotal())
         props.dispatch(expenseAddMsg('Expense Added!'))
         props.dispatch(showInfo())
-        setTimeout(() => props.dispatch(hideInfo()),3000)
+        props.dispatch(saveExpense(post, props.dispatch))
+        setTimeout(() => {
+            props.dispatch(hideInfo())
+        },5000)
     }
 
     return(

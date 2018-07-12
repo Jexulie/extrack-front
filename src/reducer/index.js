@@ -1,10 +1,11 @@
 const initalState = {
     isLoading: false,
-    isLogged: true,
+    isLogged: false,
     isLoggingFailed: false,
     curMain: 'addexpense', // this year default
     profile: {
         createdAt: null,
+        id: null,
         fullName: null,
         email: null,
         avatarUrl: null,
@@ -30,22 +31,32 @@ const reducer = (state=initalState, action) => {
         case 'LOGIN':
             return{
                 ...state,
-                isLoading: false,
-                isLogged: true,
                 profile: {
-                    createdAt: new Date().toLocaleString(),
+                    id: action.response.id,
                     fullName:action.response.name,
                     email:action.response.email,
-                    avatarUrl:action.response.picture.data.url,
-                    expenses: [],
-                    filterThisYear: [],
-                    filterThisMonth: [],
-                    filterLastYear: [],
-                    filterLastMonth: []
+                    avatarUrl:action.response.picture.data.url
                 }
             }
         case 'LOGOUT':
             return{
+
+            }
+        /* Get Info From Server */ 
+        case 'FETCH_INFO':
+        console.log(action.response)
+            return {
+                ...state,
+                isLoading: false,
+                isLogged: true,
+                profile: {
+                    ...state.profile,
+                    expenses: action.response.expenses === undefined ? [] : action.response.expenses,
+                    filterThisYear: action.response.filterThisYear  === undefined ? [] : action.response.filterThisYear,
+                    filterThisMonth: action.response.filterThisMonth  === undefined ? [] : action.response.filterThisMonth,
+                    filterLastYear: action.response.filterLastYear  === undefined ? [] : action.response.filterLastYear,
+                    filterLastMonth: action.response.filterLastMonth  === undefined ? [] : action.response.filterLastMonth
+                }
 
             }
         /* Loading */
@@ -70,7 +81,7 @@ const reducer = (state=initalState, action) => {
                         {
                             id: Math.floor(Math.random() * 1e16),
                             name: action.expense.name,
-                            cost:action.expense.cost,
+                            cost: action.expense.cost,
                             category: action.expense.category,
                             fullDate: new Date().toLocaleString(),
                             year: new Date().getFullYear(),
@@ -135,6 +146,11 @@ const reducer = (state=initalState, action) => {
             }
         case 'EXPENSE_ADD_MSG':
             return{
+                ...state,
+                message: action.msg
+            }
+        case 'API_CALL_MSG':
+            return {
                 ...state,
                 message: action.msg
             }

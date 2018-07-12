@@ -2,7 +2,6 @@ import React  from 'react';
 import '../../../css/profile.css'
 
 export default props => {
-    console.log(props)
     return(
         <div className="profile">
             <div className="avatar center">
