@@ -1,33 +1,36 @@
 import React from 'react';
 
+import '../../../css/thismonth.css'
+
 export default props => {
-    // TODO: add currency to state
+    // TODO: find highest expense -> sort for month aswell
     let list;
     let total;
-    
     if(props.thisMonth.length){
         total = props.thisMonth.reduce((p, n) =>{
             return {cost: (p.cost + n.cost)}
         }).cost;
         list = props.thisMonth.map(m => {
             return (
-                <li key={m.id}>
-                    <div className="card">
-                        <h4>Date: {m.fullDate} - {m.day_name}</h4>
-                        <h6>Category: {m.category}</h6>
-                        <h6>Expense: {m.name}</h6>
-                        <h6>Cost: {m.cost}</h6>
-                    </div>
-                </li>
+                <div className="card col s3" key={m.id}>
+                    <p className="center"><span className="label">Created At</span></p>
+                    <p className="center">{m.fullDate}</p>
+                    <p className="center">{m.day_name}</p>
+                    <hr className="horizontal-bar"/>
+                    <p className="center"><span className="label">Category: </span>{m.category}</p>
+                    <p className="center"><span className="label">Expense: </span>{m.name}</p>
+                    <p className="center"><span className="label">Cost: </span>{m.cost}{props.currency}</p>
+                </div>
             )
         })
     }
     return(
         <div className="thismonth">
-            <h2>This Month Total: {total}</h2>
-            <ul>
+            <h4 className="center">This Month Total Expenses: {total|| 0}{props.currency}</h4>
+            <h5 className="center">This Month's Highest Expense: {total|| 0}{props.currency}</h5>
+            <div className="month-holder row">
                 {list}
-            </ul>
+            </div>
         </div>
     )
 }

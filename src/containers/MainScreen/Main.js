@@ -10,11 +10,18 @@ import Comparison from './Main/Comparison';
 export default props => {
 
     let content;
+    console.log(props)
 
     if(props.state.curMain === 'thisyear'){
-        content = <ThisYear thisYear={props.state.profile.filterThisYear}/>
+        content = <ThisYear
+                    currency={props.state.currency}
+                    thisYear={props.state.profile.filterThisYear}
+                />
     }else if(props.state.curMain === 'thismonth'){
-        content = <ThisMonth thisMonth={props.state.profile.filterThisMonth}/>
+        content = <ThisMonth
+                    currency={props.state.currency}
+                    thisMonth={props.state.profile.filterThisMonth}
+                    />
     }else if(props.state.curMain === 'addexpense'){
         content = <AddExpense/>
     }else if(props.state.curMain === 'comparison'){

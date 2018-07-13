@@ -53,7 +53,7 @@ const AddExpense = props => {
                             <label>Expense Name</label>
                         </div>
                         <div className="input-field">
-                            <input type="number" placeholder="$" ref={i => {
+                            <input type="number" ref={i => {
                                 cost = i 
                             }}/>
                             <label>Expense Cost</label>
