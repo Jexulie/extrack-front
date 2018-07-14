@@ -1,6 +1,6 @@
 const initalState = {
     isLoading: false,
-    isLogged: true,
+    isLogged: false,
     isLoggingFailed: false,
     curMain: 'addexpense', // this year default
     currency: '$',

@@ -10,16 +10,10 @@ const AddExpense = props => {
     let name = "";
     let cost = "";
 
-    let post = {
-        facebookID: props.state.profile.id,
-        data: {
-            expenses: props.state.profile.expenses,
-            filterThisYear: props.state.profile.filterThisYear,
-            filterThisMonth: props.state.profile.filterThisMonth,
-            filterLastYear: props.state.profile.filterLastYear,
-            filterLastMonth: props.state.profile.filterLastMonth
-        }
-    }
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] 
+
+    
 
     // TODO: Huge Problem -> doesnt add last item
 
@@ -28,6 +22,49 @@ const AddExpense = props => {
         props.dispatch(calcTotal())
         props.dispatch(expenseAddMsg('Expense Added!'))
         props.dispatch(showInfo())
+        let postExpense = props.state.profile.expenses
+        postExpense = [...postExpense, {
+            id: Math.floor(Math.random() * 1e16),
+            name: name.value,
+            cost: cost.value,
+            category: category.value,
+            fullDate: new Date().toLocaleString(),
+            year: new Date().getFullYear(),
+            month: monthNames[new Date().getMonth()],
+            day: new Date().getDate(),
+            day_name: dayNames[new Date().getDay()],
+        }];
+        let postFilterThisYear = postExpense.filter(e => {
+            if(e.year === new Date().getFullYear()){
+                return e;
+            }
+        });
+        let postFilterThisMonth = postExpense.filter(e => {
+            if(e.month === monthNames[new Date().getMonth()]){
+                return e;
+            }
+        });
+        let postFilterLastYear = postExpense.filter(e => {
+            if(e.year === new Date().getFullYear() - 1){
+                return e;
+            }
+        });
+        let postFilterLastMonth = postExpense.filter(e => {
+            if(e.month === monthNames[new Date().getMonth() - 1]){
+                return e;
+            }
+        });
+        let post = {
+            facebookID: props.state.profile.id,
+            data: {
+                expenses: postExpense,
+                filterThisYear: postFilterThisYear,
+                filterThisMonth: postFilterThisMonth,
+                filterLastYear: postFilterLastYear,
+                filterLastMonth: postFilterLastMonth
+            }
+        }
+        console.log(post)
         props.dispatch(saveExpense(post, props.dispatch))
         setTimeout(() => {
             props.dispatch(hideInfo())
