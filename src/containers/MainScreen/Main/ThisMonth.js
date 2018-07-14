@@ -6,6 +6,9 @@ export default props => {
     // TODO: find highest expense -> sort for month aswell
     let list;
     let total;
+    let header;
+    let monthshighest;
+    
     if(props.thisMonth.length){
         total = props.thisMonth.reduce((p, n) =>{
             return {cost: (p.cost + n.cost)}
@@ -23,11 +26,31 @@ export default props => {
                 </div>
             )
         })
+        let sorted = props.thisMonth.sort((p, n) => {
+            if(p.cost < n.cost){
+              return 1
+          }else if(p.cost > n.cost){
+              return -1
+          }else{
+              return 0;
+          }
+        });
+        monthshighest = sorted[0]
+    }
+
+    
+
+    if(props.thisMonth.length){
+        header = (<div>
+            <h4 className="center">This Month Total Expenses: {total|| 0}{props.currency}</h4>
+            <h5 className="center">This Month's Highest Expense: {monthshighest.name} - {monthshighest.cost || 0 }{props.currency}</h5>
+        </div>)
+    }else{
+        header = (<h4 className="center">There Is No Expense This Month.</h4>)
     }
     return(
         <div className="thismonth">
-            <h4 className="center">This Month Total Expenses: {total|| 0}{props.currency}</h4>
-            <h5 className="center">This Month's Highest Expense: {total|| 0}{props.currency}</h5>
+            {header}
             <div className="month-holder row">
                 {list}
             </div>

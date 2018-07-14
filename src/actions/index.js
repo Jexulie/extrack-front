@@ -45,22 +45,6 @@ export const saveExpense = expense => {
         return axios.post('http://localhost:3001/user/add', {
             expense
         })
-            .then(r => {
-                if(r.data.success === true){
-                    dispatch(apiCallMsg('Data Saved!'));
-                    dispatch(showInfo());
-                    setTimeout(() => dispatch(hideInfo(),3000));
-                }else{
-                    dispatch(apiCallMsg('Connection Error...'));
-                    dispatch(showInfo());
-                    setTimeout(() => dispatch(hideInfo(),5000));
-                }                
-            })
-            .catch(e => {
-                dispatch(apiCallMsg('Connection Error...'));
-                dispatch(showInfo());
-                setTimeout(() => dispatch(hideInfo(),3000));
-            })
     }
 }
 

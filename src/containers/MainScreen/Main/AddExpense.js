@@ -31,7 +31,7 @@ const AddExpense = props => {
         props.dispatch(saveExpense(post, props.dispatch))
         setTimeout(() => {
             props.dispatch(hideInfo())
-        },5000)
+        },1500)
     }
 
     return(
