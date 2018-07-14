@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeMain } from '../../../actions'
 
-// TODO: Logout | On click red darken-1
 
 const Menu = props => {
     let notActive = "waves-effect waves-light btn red darken-3"

@@ -15,8 +15,6 @@ const AddExpense = props => {
 
     
 
-    // TODO: Huge Problem -> doesnt add last item
-
     let activate = () => {
         props.dispatch(addExpense({category: category.value, cost: parseInt(cost.value,10), name: name.value}));
         props.dispatch(calcTotal())
@@ -64,7 +62,6 @@ const AddExpense = props => {
                 filterLastMonth: postFilterLastMonth
             }
         }
-        console.log(post)
         props.dispatch(saveExpense(post, props.dispatch))
         setTimeout(() => {
             props.dispatch(hideInfo())

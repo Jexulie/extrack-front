@@ -3,7 +3,6 @@ import React from 'react';
 import '../../../css/thismonth.css'
 
 export default props => {
-    // TODO: find highest expense -> sort for month aswell
     let list;
     let total;
     let header;
