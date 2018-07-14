@@ -46,7 +46,7 @@ export default props => {
             <h5 className="center">This Month's Highest Expense: {monthshighest.name} - {monthshighest.cost || 0 }{props.currency}</h5>
         </div>)
     }else{
-        header = (<h4 className="center">There Is No Expense This Month.</h4>)
+        header = (<h4 className="warn center">There Is No Expense This Month.</h4>)
     }
     return(
         <div className="thismonth">

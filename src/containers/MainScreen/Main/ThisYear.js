@@ -60,7 +60,7 @@ export default  props => {
             <h5 className="center">This Year's Highest Expense: {yearshighest.name} - {yearshighest.cost || 0 }{props.currency} in {yearshighest.month}</h5>
         </div>)
     }else{
-        header = (<h4 className="center">There Is No Expense This Year.</h4>)
+        header = (<h4 className="warn center">There Is No Expense This Year.</h4>)
     }
     return(
         <div className="thisyear">
