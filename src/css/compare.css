@@ -11,6 +11,9 @@
     margin: 15px;
     transition: all ease .5s;
 }
+.row .col{
+    min-height: 150px
+}
 .card:hover{
     transform: translateY(-10px);
     transition: all ease .5s;

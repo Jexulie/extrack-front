@@ -12,14 +12,26 @@ export default  props => {
         })
     }
 
+    let calcMonthHighest = month => {
+        let filtered = props.thisYear.filter(m => m.month === month)
+        let sorted = filtered.sort((p, n) => {
+            if(p.cost < n.cost){
+              return 1
+          }else if(p.cost > n.cost){
+              return -1
+          }else{
+              return 0;
+          }
+        });
+        return sorted[0]
+    }
+
     // Cheap Fix Sry
     let filterbyMonth = props.thisYear.filter((month, index, self) => 
         index === self.findIndex((t) => {
             return t.month === month.month
         })
     );
-
-    console.log(filterbyMonth)
 
     let list;
     let total;
@@ -31,13 +43,11 @@ export default  props => {
             return {cost: (p.cost + n.cost)}
         })).cost;
         list = filterbyMonth.map(m => {
-            
-        calcMonthly(m.month)
             return (
                 <div className="card col s3" key={m.id}>
                     <p className="center">{m.month}</p>
                     <hr/>
-                    <p className="center"><span className="label">This Month's Highest Expense: </span>{total}{props.currency}</p>
+                    <p className="center"><span className="label">This Month's Highest Expense: </span>{calcMonthHighest(m.month).name} - {calcMonthHighest(m.month).cost}{props.currency}</p>
                     <p className="center"><span className="label">Monthly Total: </span>{calcMonthly(m.month).cost}{props.currency}</p>
                 </div>
             )

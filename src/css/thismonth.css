@@ -16,3 +16,7 @@
 p{
     font-size: .9em;
 }
+
+.row .col{
+    min-height: 150px
+}
