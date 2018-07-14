@@ -63,7 +63,7 @@ const AddExpense = props => {
                         <div className="input-field vertical">
                             <button className="waves-effect waves-light btn red darken-2 vertical-btn" onClick={e => {
                                 e.preventDefault();
-                                if(category.value !== "" || name.value !== "" || cost.value !== ""){
+                                if(category.value !== "" && name.value !== "" && cost.value !== ""){
                                     if(/\w/ig.test(cost.value)){
                                         activate();
                                         category.value = "";
