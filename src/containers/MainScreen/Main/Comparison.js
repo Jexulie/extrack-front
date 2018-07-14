@@ -173,7 +173,7 @@ export default props => {
                 </div>
             )
         }else{
-            yearsside = (<h5 className="warn center">There Is No Expense For Last Year.</h5>)
+            yearsside = (<h5 className="center">There Is No Expense For Last Year.</h5>)
         }
     }
     return(

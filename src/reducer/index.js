@@ -11,42 +11,11 @@ const initalState = {
         email: null,
         avatarUrl: null,
         messageWarn: false,
-        expenses: [
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:6716816756389833,month:"July",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:6716846756389833,month:"February",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:6716826756389833,month:"October",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:671645326756389833,month:"May",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:6716826756389833,month:"September",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:671682634534556389833,month:"June",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:6716826756323423833,month:"June",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:671682675632229833,month:"June",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:67168267511119833,month:"July",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:671682675638343833,month:"July",name:"brazil",year:2018}
-        ],
-        filterThisYear: [
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"2/13/2018, 11:05:16 AM",id:67168267563859833,month:"July",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"3/13/2018, 11:05:16 AM",id:67168269756389833,month:"March",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"1/13/2018, 11:05:16 AM",id:18334434343333331,month:"February",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:6722168267563891833,month:"April",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"2/13/2018, 11:05:16 AM",id:67221116826756389833,month:"January",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"2/13/2018, 11:05:16 AM",id:67221116826756389833,month:"March",name:"brazil",year:2018}
-        ],
-        filterThisMonth: [
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/11/2018, 11:05:16 AM",id:67168126756389833,month:"July",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/8/2018, 11:05:16 AM",id:67168267563859833,month:"July",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/20/2018, 11:05:16 AM",id:67168269756389833,month:"June",name:"brazil",year:2018},
-        ],
-        filterLastYear: [
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:67168267564389833,month:"July",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:67168276756389833,month:"February",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:68716826756389833,month:"October",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:67168266756389833,month:"May",name:"brazil",year:2017},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2017, 11:05:16 AM",id:67168267569389833,month:"September",name:"brazil",year:2017}
-        ],
-        filterLastMonth: [
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:67168267563891833,month:"June",name:"brazil",year:2018},
-            {category:"coffee",cost:100,day:13,day_name:"Friday",fullDate:"7/13/2018, 11:05:16 AM",id:671116826756389833,month:"June",name:"brazil",year:2018}
-        ]
+        expenses: [],
+        filterThisYear: [],
+        filterThisMonth: [],
+        filterLastYear: [],
+        filterLastMonth: []
     },
     info: null,
     message: null
